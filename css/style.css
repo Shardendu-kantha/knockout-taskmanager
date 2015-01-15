@@ -1,0 +1,71 @@
+.container{
+	width: 960px;
+}
+.row{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.text-right{
+	text-align: right;
+}
+.text-center {
+	text-align: center;
+}
+.quickStatus{
+	font-size: 10px;
+	font-weight: bold;
+}
+.content {
+	margin: 0;
+}
+.pending {
+	color: #FD0333;
+}
+.new {
+	color: #FD9203;
+}
+.completed {
+	color: #019457;
+}
+a.addTask {
+	font-weight: bold;
+	border: 1px solid #ccc;
+	padding: 5px;
+	background: #000;
+	color: #fff;
+}
+a.addTask span {
+	padding: 3px;
+	margin-right: 5px;
+	font-size:12px;
+}
+.table {
+	display: table;
+	border: 1px solid #ccc;
+}
+.table-header-group {
+	font-weight: bold;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+	background: #f7f7f7;
+}
+.taskList {
+	font-size: 12px;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+.taskList:hover {
+	background: #f7f7f7;
+}
+.error-zone {
+	background: #F21C0A;
+	color: #fff;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.error-zone p {
+	margin: 0;
+}
+.input-error {
+	border: 1px solid #a94442;
+}
