@@ -58,6 +58,7 @@ $(function() {
 	    self.filterselect = ko.observable("");
 	    self.idOrder = ko.observable("ascending");
 	    self.taskOrder = ko.observable("ascending");
+	    self.isEditMode = ko.observable(false);
 	    self.statusList = [{id: "", text: "Select"}, {id: "New", text: "New"}, {id: "Pending", text: "Pending"}, {id: "Completed", text: "Completed"}]
 
 		self.today = ko.computed(function(){
@@ -82,23 +83,41 @@ $(function() {
 			self.pendingTotal(pendingCount);
 			self.completedTotal(completedCount);
 		}
+		self.clearTask = function(){
+			self.isEditMode(false);
+			self.taskid("");
+			self.task("");
+			self.status("");
+		}
 		self.removeTask = function(task){
 			self.tasks.remove(task);
 			self.statusCount();
 		}
 		self.addTask = function(){
 			if (self.isValid()) {
-				self.tasks.push({
-					taskId: self.taskid(),
-					taskName: self.task(),
-					status: self.status()
-				});
+				if(self.isEditMode() === false){
+					self.tasks.push({
+						taskId: self.taskid(),
+						taskName: self.task(),
+						status: self.status()
+					});
+				}
+				else if(self.isEditMode() === true){
+					console.log('123');
+					self.isEditMode(false);
+				}				
 				self.statusCount();
 				$('#myModal').modal('hide');
 			}
 			else {
 				self.showErrorMessages(true);
 			}
+		}
+		self.editTask = function(data) {
+			self.isEditMode(true);
+			self.taskid(data.taskId);
+			self.task(data.taskName);
+			self.status(data.status);
 		}
 		self.sortTask = function(sortBy){
 			switch(sortBy){
@@ -129,6 +148,7 @@ $(function() {
 			}
 		}
 		self.init = function(){
+			self.isEditMode(false);
 			ko.validation.init({
 				insertMessages: false
 			});
