@@ -1,0 +1,2 @@
+# knockout-taskmanager
+Simple primary level task manager application using knockout with creation, update, deletion, sorting and filter functionality. This project demonstrate the basic and fundamental knockout functionalities to start with. How to bind fields how to validate input fields, looping through observable array and all. For validation I have used knockout validation plugin (https://github.com/Knockout-Contrib/Knockout-Validation).
